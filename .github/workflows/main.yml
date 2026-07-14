@@ -56,7 +56,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ec2-user/vzeta-app
-            # Cambia automáticamente "TU_USUARIO" en el compose por tu usuario real de Docker Hub
             sed -i 's/TU_USUARIO/${{ secrets.DOCKERHUB_USERNAME }}/g' docker-compose.yml
             docker compose down || true
             docker compose pull
